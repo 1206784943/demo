@@ -71,6 +71,9 @@ spring:
     encoding: UTF-8
     content-type: text/html
     cache: false
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/admin
 
 mybatis:
   configuration:
@@ -88,3 +91,5 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+#mongo
