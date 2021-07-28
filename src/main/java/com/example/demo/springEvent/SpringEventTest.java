@@ -29,7 +29,7 @@ public class SpringEventTest {
         userActionEvent.setUser(user);
         userActionEvent.setEnumUserOperate(EnumUserOperate.ADD);
         applicationEventPublisher.publishEvent(userActionEvent);
-        log.info("事件发布操作:" + EnumUserOperate.ADD + "，发送数据UserAction" + JSONObject.toJSONString(userActionEvent));
+        log.info("事件发布操作:" + EnumUserOperate.ADD + "，发送数据" + userActionEvent.getUser());
     }
 
 }
