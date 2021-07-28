@@ -1,5 +1,6 @@
 package com.example.demo.springEvent;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,7 +29,7 @@ public class SpringEventTest {
         userActionEvent.setUser(user);
         userActionEvent.setEnumUserOperate(EnumUserOperate.ADD);
         applicationEventPublisher.publishEvent(userActionEvent);
-        log.info("事件发布操作:" + EnumUserOperate.ADD + "，发送数据UserAction" + userActionEvent);
+        log.info("事件发布操作:" + EnumUserOperate.ADD + "，发送数据UserAction" + JSONObject.toJSONString(userActionEvent));
     }
 
 }
