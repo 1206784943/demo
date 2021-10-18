@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.example.demo.mybatis.dto.LargeCount;
 import com.example.demo.mybatis.service.LargeCountService;
 import com.example.demo.redis.RedisCacheClient;
+import com.example.demo.shiro.User;
+import com.example.demo.single.SingleObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +26,63 @@ public class DemoApplicationTests {
     private LargeCountService largeCountService;
     @Autowired
     private RedisCacheClient redisCacheClient;
+
+    @Test
+    public void test11() {
+
+    }
+
+    @Test
+    public void test10() {
+//        SingleObject object = new SingleObject();
+//        object.showMessage();
+
+        SingleObject instance = SingleObject.getInstance();
+        instance.showMessage();
+    }
+
+    @Test
+    public void test9() {
+        // 创建一个 HashMap
+        HashMap<String, Integer> prices = new HashMap<>();
+
+        // 往HashMap中添加映射关系
+        prices.put("Bag", 300);
+        prices.put("Pant", 150);
+
+        // Shoes中的映射关系已经存在
+        // Shoes并没有计算新值
+        prices.computeIfAbsent("Shoes", (key) -> 280);
+
+        // 输出更新后的 HashMap
+        System.out.println("Updated HashMap: " + prices);
+    }
+
+    @Test
+    public void test8(){
+        ArrayList<User> users = new ArrayList<>();
+        users.add(new User("Tom", 10));
+        users.add(new User("Tom2", 20));
+        users.add(new User("Tom3", 30));
+        users.add(new User("Tom4", 50));
+        users.add(new User("Tom4", 40));
+        HashMap<String, List<User>> map = new HashMap<>();
+        for (User user : users) {
+            map.computeIfAbsent(user.getUsername(), k -> Arrays.asList(user));
+        }
+        System.out.println(JSONArray.toJSONString(map));
+    }
+
+    @Test
+    public void test7(){
+        ArrayList<User> users = new ArrayList<>();
+        users.add(new User("Tom", 10));
+        users.add(new User("Tom2", 20));
+        users.add(new User("Tom3", 30));
+        users.add(new User("Tom4", 40));
+        users.sort(Comparator.comparing(User::getAge).reversed());
+        System.out.println(JSONArray.toJSONString(users));
+    }
 
     @Test
     public void test6() {
