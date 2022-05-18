@@ -106,18 +106,32 @@ public class LambdaAndStreamTest {
         Collections.sort(list);
         //反转
         Collections.reverse(list);
-        list.forEach(System.out::println);
-
         //指定对象字段排序
         List<User> userList = new ArrayList<User>();
         userList.add(new User("张三", 20));
-        userList.add(new User("李四", 22));
         userList.add(new User("王五", 10));
-        Collections.sort(userList, new Comparator<User>() {
-            @Override
-            public int compare(User user, User t1) {
-                return t1.getAge() - user.getAge();
+        //未处理空值
+        userList.sort(Comparator.comparing(User::getAge).reversed());
+        final User user = new User();
+        user.setUsername("李四");
+        userList.add(user);
+        final User user3 = new User();
+        user3.setUsername("刘大");
+        userList.add(user3);
+        //加入空值处理
+        userList.sort((User u1, User u2) -> {
+            final Integer a1 = u1.getAge();
+            final Integer a2 = u2.getAge();
+            if(a1 == null) {
+                if(a2 == null) {
+                    return 0;
+                }
+                return 1;
             }
+            if(a2 == null) {
+                return -1;
+            }
+            return a2 - a1;
         });
         userList.forEach(System.out::println);
     }
