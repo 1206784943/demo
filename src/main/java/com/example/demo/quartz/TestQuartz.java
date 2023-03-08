@@ -22,7 +22,7 @@ public class TestQuartz {
     @Scheduled(cron = "0/5 * * * * ?") //每5秒执行一次
 //    @Scheduled(fixedRate = 6000) //每6秒执行一次
     private void process() {
-        log.info("现在时间：" + dateFormat.format(new Date()));
+//        log.info("现在时间：" + dateFormat.format(new Date()));
     }
 }
 

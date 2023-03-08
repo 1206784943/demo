@@ -52,28 +52,29 @@ spring:
     host: 127.0.0.1
     database: 0
     password:
-  freemarker:
-    allow-request-override: false
-    cache: false
-    check-template-location: true
-    charset: UTF-8
-    content-type: text/html; charset=utf-8
-    expose-request-attributes: false
-    expose-session-attributes: false
-    expose-spring-macro-helpers: false
-    suffix: .html
-    template-loader-path: file:D:/microger/MicroFinance/upload_files/Template/
-  thymeleaf:
+#  freemarker:
+#    allow-request-override: false
+#    cache: false
+#    check-template-location: true
+#    charset: UTF-8
+#    content-type: text/html; charset=utf-8
+#    expose-request-attributes: false
+#    expose-session-attributes: false
+#    expose-spring-macro-helpers: false
+#    suffix: .html
+#    template-loader-path: file:D:/microger/MicroFinance/upload_files/Template/
+#  thymeleaf:
   #    prefix: file:D:/microger/MicroFinance/upload_files/Template/
-    prefix: classpath:/templates/
-    suffix: .html
-    mode: LEGACYHTML5
-    encoding: UTF-8
-    content-type: text/html
-    cache: false
+#    prefix: classpath:/templates/
+#    suffix: .html
+#    mode: LEGACYHTML5
+#    encoding: UTF-8
+#    cache: false
+#    servlet:
+#      content-type: text/html
   data:
     mongodb:
-      uri: mongodb://localhost:27017/admin
+      uri: mongodb://localhost:27017/test
 
 mybatis:
   configuration:
@@ -91,5 +92,3 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
-
-#mongo
