@@ -5,8 +5,11 @@ import org.checkerframework.checker.units.qual.C;
 public class Circle extends Shape {
     int x,y,radius;
 
-    public Circle(DrawAPI drawAPI) {
+    public Circle(int x,int y,int radius,DrawAPI drawAPI) {
         super(drawAPI);
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
     }
 
     @Override
@@ -15,7 +18,7 @@ public class Circle extends Shape {
     }
 
     public static void main(String[] args) {
-        Circle circle = new Circle(new RedCircle());
-        circle.drawAPI.drawCircle(1,2,3);
+        Shape circle = new Circle(1, 2, 3, new RedCircle());
+        circle.draw();
     }
 }
