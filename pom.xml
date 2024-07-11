@@ -228,6 +228,11 @@
             <artifactId>easyexcel</artifactId>
             <version>3.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.yitter</groupId>
+            <artifactId>yitter-idgenerator</artifactId>
+            <version>1.0.6</version>
+        </dependency>
     </dependencies>
 
     <build>
